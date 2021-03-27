@@ -4,6 +4,8 @@
 #include "choice_three.h"
 #include "choice_four.h"
 #include "choice_five.h"
+#include "choice_six.h"
+#include "choice_seven.h"
 
 int welcome() {
     printf("#######################################\n");
@@ -15,7 +17,7 @@ int welcome() {
 
 int main() {
 
-    int c1, c2, c3, c4, c5;
+    int c1, c2, c3, c4, c5, c6, c7;
 
     system("touch yourscript.sh");
     FILE *setup;
@@ -23,7 +25,7 @@ int main() {
     fprintf(setup, "#!/bin/sh\nadb kill-server\nsudo adb start-server\necho 'Do not worry if you see some errors!'");
     fclose(setup);
     welcome();
-    
+
     /*Choices*/
         printf("#######################################\n");
 
@@ -35,7 +37,7 @@ int main() {
         if (c1 == 1) {
             printf("Adding to script...\n");
             choice_one();
-            printf("\nDone.\n");
+            printf("Done.\n");
         }
         else {
             printf("Skipping...\n");
@@ -50,7 +52,7 @@ int main() {
         if (c2 == 1) {
             printf("Adding to script...\n");
             choice_two();
-            printf("\nDone.\n");
+            printf("Done.\n");
         }
         else {
             printf("Skipping...\n");
@@ -66,7 +68,7 @@ int main() {
         if (c3 == 1) {
             printf("Adding to script...\n");
             choice_three();
-            printf("\nDone.\n");
+            printf("Done.\n");
         }
         else {
             printf("Skipping...\n");
@@ -82,7 +84,7 @@ int main() {
         if (c4 == 1) {
             printf("Adding to script...\n");
             choice_four();
-            printf("\nDone.\n");
+            printf("Done.\n");
         }
         else {
             printf("Skipping...\n");
@@ -98,7 +100,7 @@ int main() {
         if (c5 == 1) {
             printf("Adding to script...\n");
             choice_five();
-            printf("\nDone.\n");
+            printf("Done.\n");
         }
         else {
             printf("Skipping...\n");
@@ -106,6 +108,34 @@ int main() {
 
         printf("#######################################\n");
 
+	printf("Do you use a browser other than Chrome?\nAnswer: ");
+	scanf("%i", &c6);
+	printf("\nYour choice: %i\n", c6);
+        if (c6 == 1) {
+        	printf("Adding to script...\n");
+                choice_six();
+                printf("Done.\n");
+        }
+        else {
+            printf("Skipping...\n");
+        }
+
+	printf("#######################################\n");
+
+	printf("Do you have an alternative Play Store\nclient (or use F-Droid without\nGoogle Play) [ADVANCED USERS ONLY!]\nAnswer: ");
+	scanf("%i", &c7);
+	printf("\nYour choice: %i\n", c7);
+	if (c7 == 1) {
+		printf("Adding to script...\n");
+		choice_seven();
+		printf("Done.\n");
+	}
+	else {
+		printf("Skipping...\n");
+	}
+	printf("#######################################\n");
+
+	/*Choices end here*/
 
     FILE *endoffile;
     endoffile = fopen("yourscript.sh", "a");
